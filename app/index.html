@@ -20,49 +20,67 @@
           <h1>Twillio Demos</h1>
 
           <div class="row">
-            <form class="span12" id="sendAppLink" action="http://localhost:8888/sendAppLink" method="POST">
+            <form class="span12 form-horizontal" id="sendAppLink" action="http://localhost:8888/sendAppLink" method="POST">
               <fieldset id="tellAFriend">
                 <legend>Tell A Friend</legend>
-                <label>
-                  Your Name:
-                  <input type="text" name="yourName">
-                </label>
-                <label>
-                  Friend's Name:
-                  <input type="text" name="friendsName">
-                </label>
-                <label>
-                  Phone: 
-                  <input type="phone" name="phone">
-                </label>
-                <input type="submit" value="Send">
+                <div class="control-group">
+                  <label class="control-label" for="yourName">Your Name: </label>
+                  <div class="controls"><input type="text" name="yourName"></div>
+                </div>
+                <div class="control-group">
+                  <label class="control-label">Friend's Name: </label>
+                  <div class="controls"><input type="text" name="friendsName"></div>
+                </div>
+                <div class="control-group">
+                  <label class="control-label">Phone: </label>
+                  <div class="controls"><input type="phone" name="phone"></div>
+                </div>
+                <button type="submit" id="sendAppLinkBtn" class="btn">Send</button>
               </fieldset>
             </form>
+          </div>
+          <div id="sendAppLinkAlert" class="alert" style="display:none;">
+            <button type="button" class="close" data-dismiss="alert">&times;</button>
+            <span><strong>Success!</strong> Check yo shizzle for the mizzle!</span>
           </div>
           <div class="row">
-            <form class="span12" id="sendBrabble" action="http://localhost:8888/sendBrabble" method="POST">
+            <form class="span12 form-horizontal" id="sendBrabble" action="http://localhost:8888/sendBrabble" method="POST">
               <fieldset>
                 <legend>Send A Brabble</legend>
-                <label>
-                  <input type="text" name="yourName"> Your Name
-                </label>
-                <label>
-                  <input type="text" name="friendsName"> Friend's Name
-                </label>
-                <label>
-                  <input type="phone" name="phone"> Phone
-                </label>
-                <label>
-                  <select id="brabble">
-                    <option value="http://bit.ly/13CdzHe">Wrestler</option>
-                    <option value="http://bit.ly/172TNtz">Bought at Lunch</option>
-                    <option value="http://bit.ly/172TUW3">Monkey</option>
-                  </select>
-                </label>
-                <input type="submit" value="Send">
+                <div class="control-group">
+                  <label class="control-label">Your Name: </label>
+                  <div class="controls"><input type="text" name="yourName"></div>
+                </div>
+
+                <div class="control-group">
+                  <label class="control-label">Friend's Name: </label>
+                  <div class="controls"><input type="text" name="friendsName"></div>
+                </div>
+
+                <div class="control-group">
+                  <label class="control-label">Phone: </label>
+                  <div class="controls"><input type="phone" name="phone"></div>
+                </div>
+
+                <div class="control-group">
+                  <label class="control-label">Brabble: </label>
+                  <div class="controls">
+                    <select id="brabble">
+                      <option value="http://bit.ly/13CdzHe">Wrestler</option>
+                      <option value="http://bit.ly/172TNtz">Bought at Lunch</option>
+                      <option value="http://bit.ly/172TUW3">Monkey</option>
+                    </select>
+                  </div>
+                </div>
+                <button type="submit" id="sendBrabbleBtn" class="btn">Send</button>
               </fieldset>
             </form>
           </div>
+          <div id="sendBrabbleAlert" class="alert" style="display:none;">
+            <button type="button" class="close" data-dismiss="alert">&times;</button>
+            <span><strong>Success!</strong> Check yo shizzle for the mizzle!</span>
+          </div>
+          <!--
           <div class="row">
             <form class="span12" id="sendBrabble" action="http://localhost:8888/sendBrabble" method="POST">
               <fieldset>
@@ -71,6 +89,7 @@
               </fieldset>
             </form>
           </div>
+          -->
         </div>
 
         <!--[if lt IE 7]>

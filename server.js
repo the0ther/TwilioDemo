@@ -52,11 +52,9 @@ app.post('/sendAppLink', function (req, res) {
   };
 
   client.sms.messages.create(data, function (error, message) {
-
     // The "error" variable will contain error information, if any.
     // If the request was successful, this value will be "falsy"
     if (!error) {
-
       // The second argument to the callback will contain the information
       // sent back by Twilio for the request.  In this case, it is the
       // information about the text messsage you just sent:
@@ -65,8 +63,10 @@ app.post('/sendAppLink', function (req, res) {
 
       console.log('Message sent on:');
       console.log(message.dateCreated);
+      res.send(200);
     } else {
-      console.log('Oops! There was an error.');
+      console.log('Oops! There was an error.', error);
+      res.send(500);
     }
   });
 });
@@ -82,14 +82,11 @@ app.post('/sendBrabble', function (req, res) {
     "body": body
   };
 
-console.log('here 1');
   client.sms.messages.create(data, function (error, message) {
 
-console.log('here 2');
     // The "error" variable will contain error information, if any.
     // If the request was successful, this value will be "falsy"
     if (!error) {
-console.log('here 3');
       // The second argument to the callback will contain the information
       // sent back by Twilio for the request.  In this case, it is the
       // information about the text messsage you just sent:
@@ -98,9 +95,10 @@ console.log('here 3');
 
       console.log('Message sent on:');
       console.log(message.dateCreated);
+      res.send(200);
     } else {
-console.log('here 4');
-      console.log('Oops! There was an error.');
+      console.log('Oops! There was an error.', error);
+      res.send(500);
     }
   });
 });

@@ -1,12 +1,14 @@
 /*global define */
-define(['jquery'], function ($) {
+define(['jquery', 'bootstrap'], function ($) {
   'use strict';
 
-  $('#sendAppLink').on('submit', function() {
+  $('#sendAppLinkBtn').on('click', function() {
+    console.log('inside this handler!!!!');
+    var form = $('#sendAppLink');
     //var that = this;
-    var name = $('[name=yourName]', this).val();
-    var friendsName = $('[name=friendsName]', this).val();
-    var phone = $('[name=phone]', this).val();
+    var name = $('[name=yourName]', form).val();
+    var friendsName = $('[name=friendsName]', form).val();
+    var phone = $('[name=phone]', form).val();
     var body = 'Hi ' + friendsName + ', Your friend ' + name + ' wants to share video with you on Brabble. Get the app here: http://bit.ly/190JYt8';
 
     // issue request
@@ -16,36 +18,42 @@ define(['jquery'], function ($) {
         'From': '%2B19175128334',
         'To': phone,
         'Body': body
-      })
-    .then(function() {
+    }).done(function() {
       console.log('done sending message');
+      $('#sendAppLinkAlert').addClass('alert-success').show();
+    }).fail(function() {
+      console.log('failed');
+      $('#sendAppLinkAlert span').html('<strong>Fail!</strong> Best check yo self, you\'re not looking too good.');
+      $('#sendAppLinkAlert').addClass('alert-error').show();
     });
-
     return false;
   });
 
-  $('#sendBrabble').on('submit', function() {
+  $('#sendBrabbleBtn').on('click', function() {
     console.log('inside sendBrabble()');
-    var name = $('[name=yourName]', this).val();
-    var friendsName = $('[name=friendsName]', this).val();
-    var phone = $('[name=phone]', this).val();
+    var form = $('#sendBrabble');
+    var name = $('[name=yourName]', form).val();
+    var friendsName = $('[name=friendsName]', form).val();
+    var phone = $('[name=phone]', form).val();
     var theBrabble = $('#brabble option:selected').val();
     console.log(theBrabble);
     var body = 'Hi ' + friendsName + ', Your friend ' + name + ' wants to show you a Brabble.: ' + theBrabble;
 
     // issue request
     $.post(
-      'http://localhost:8888/sendAppLink',
+      'http://localhost:8888/sendBrabble',
       {
         'From': '%2B19175128334',
         'To': phone,
         'Body': body
-
-      })
-    .then(function() {
+    }).done(function() {
       console.log('done sending message');
+      $('#sendBrabbleAlert').addClass('alert-success').show();
+    }).fail(function() {
+      console.log('failed');
+      $('#sendBrabbleAlert span').html('<strong>Fail!</strong> Best check yo self, you\'re not looking too good.');
+      $('#sendBrabbleAlert').addClass('alert-error').show();
     });
-
     return false;
   });
 });
