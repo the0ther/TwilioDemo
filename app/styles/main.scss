@@ -3,7 +3,10 @@ $iconWhiteSpritePath: "../images/glyphicons-halflings-white.png";
 
 @import 'sass-bootstrap/lib/bootstrap';
 
-.hero-unit {
-    margin: 50px auto 0 auto;
-    width: 300px;
+body {
+  background-image: url(../images/redox_01.png);
+}
+
+label, input, select {
+  font-size: 1.2em;
 }
