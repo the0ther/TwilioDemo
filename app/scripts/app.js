@@ -13,7 +13,7 @@ define(['jquery', 'bootstrap'], function ($) {
 
     // issue request
     $.post(
-      'http://localhost:8888/sendAppLink',
+      'http://twilio.dev.brabble.com:8888/sendAppLink',
       {
         'From': '%2B19175128334',
         'To': phone,
@@ -41,7 +41,7 @@ define(['jquery', 'bootstrap'], function ($) {
 
     // issue request
     $.post(
-      'http://localhost:8888/sendBrabble',
+      'http://twilio.dev.brabble.com:8888/sendBrabble',
       {
         'From': '%2B19175128334',
         'To': phone,
